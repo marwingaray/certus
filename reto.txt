@@ -1,0 +1,10 @@
+*RETO
+La empresa Anita S.A. fabrica los juguetes Robot y Muñeca,
+y realiza sus ventas por delivery.
+
+La empresa de delivery le cobra 5 soles por entrega y 1 sol adicional cuando el paquete a entregar pesa mas de 10 kilos.
+
+Cada Robot pesa 1 Kg y cada Muñeca ½ Kg.
+Escribir una aplicación que calcule el importe que debe cobrar la empresa Anita S.A.
+por el servicio de delivery ingresando la cantidad de Robot y Muñecas
+que se transportarán en un paquete. */

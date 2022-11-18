@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+</body>
+</html>
+<script>
+   //variables 
+    let robotPeso= 1;
+    let munecaPeso= 0.5;
+    let costoDelivery = 5;
+    let pesoTotalRobot = 0;
+    let pesoTotalMuneca = 0;
+    let pesoTotal = 0;
+
+    let cantRobot = "";
+    let cantMuneca = "";
+    let importe = 0;
+
+   //proceso
+    cantMuneca = prompt("Ingrese cantidad de nuñecas:");
+    cantRobot = prompt("Ingrese cantidad de robots:");
+
+    pesoTotalMuneca = parseInt(cantMuneca)*munecaPeso;
+    pesoTotalMuneca = parseInt(cantRobot)*robotPeso;
+    pesoTotal = pesoTotalMuneca + pesoTotalRobot;
+
+    if (pesoTotal > 10) {
+        costoDelivery = costoDelivery + 1;
+    }
+    alert(`El costo de delivery es de ${costoDelivery} por ${cantMuneca} muñecas y ${cantRobot} robots`)
+
+</script>

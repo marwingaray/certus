@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <header></header>
+    <main>
+        <section>
+            <input type="text" id="nombres">
+            <input type="text" id="diasLab">
+        </section>
+        <section>
+            <button id="calcular"></button>
+        </section>
+    </main>
+</body>
+<script>
+
+
+
+    btnCalcular = document.getElementById('calcular');
+
+    btnCalcular.onclick = function () {
+        let nombres = document.getElementById('nombres');
+        let diasLab = document.getElementById('diasLab');
+        //let diasLab = parseInt(prompt("Ingrese cantidad e dias laborados"));
+        let aPagar = parseInt(diasLab) + 40;
+        if (diasLab >= 15) {
+            let bono = (20 / 100) * apagar;
+            alert(bono + aPagar)
+        } else {
+            alert(aPagar)
+        }
+    }
+
+
+</script>
+
+</html>
