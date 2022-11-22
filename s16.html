@@ -31,7 +31,7 @@
             <section class="container-fluid" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link "  href="index.html">Inicio</a>
+                        <a class="nav-link " href="index.html">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="s13.html">Session 13</a>
@@ -43,7 +43,7 @@
                         <a class="nav-link " href="s15.html">Session 15</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"  href="s16.html">Session 16</a>
+                        <a class="nav-link active" aria-current="page" href="s16.html">Session 16</a>
                     </li>
                 </ul>
             </section>
@@ -51,7 +51,71 @@
     </nav>
     <main class="container ">
         <section class="row">
-
+            <h1>Tarea asincrona sesion 16</h1>
+            <section class="col-12 m-3 p-3 border ">
+                <h3>Ejercicio 1</h3>
+                <section class="row">
+                    <section class="col-4">
+                        <label for="">Valor 1</label>
+                        <input type="number" id="valor1">
+                        <br>
+                        <label for="">Valor 2</label>
+                        <input type="number" id="valor2">
+                    </section>
+                    <section class="col-4">
+                        <label for="">Seleccione operacion</label>
+                        <select name="operacion" id="operacion">
+                            <option value="restar">Restar</option>
+                            <option value="multiplicar">Multiplicar</option>
+                            <option value="sumar">Sumar</option>
+                            <option value="exponente">Exponente</option>
+                        </select>
+                    </section>
+                    <section class="col-4">
+                        <button class="btn btn-success" id="btnE1">Calcular</button>
+                    </section>
+                </section>
+            </section>
+            <section class="col-12 m-3 p-3 border ">
+                <h3>Ejercicio 2</h3>
+                <section class="row">
+                    <section class="col-4">
+                        <label for="">Ingrese grados Celcius</label>
+                        <input type="number" id="grados">
+                        
+                    </section>
+                    <section class="col-4">
+                        <button class="btn btn-success" id="btnE2">Calcular</button>
+                    </section>
+                </section>
+            </section>
+            <section class="col-12 m-3 p-3 border ">
+                <h3>Ejercicio 3</h3>
+                <section class="row">
+                    <section class="col-4">
+                        <label for="">Valor 1</label>
+                        <input type="number" id="valor3">
+                        <br>
+                        <label for="">Valor 2</label>
+                        <input type="number" id="valor4">
+                    </section>
+                    <section class="col-4">
+                        <button class="btn btn-success" id="btnE3">Sumar</button>
+                    </section>
+                    <section class="col-4">
+                        <p id="resultado" class="info"></p>
+                    </section>
+                </section>
+            </section>
+        </section>
+        
+        <section class="row">
+            <h1>Reto</h1>
+            <section class="col-4 text-center">
+                <p>Reto</p>
+                <button class="btn btn-primary" id="btnR1">Ejecutar</button>
+            </section>
+            
         </section>
     </main>
     <aside>
@@ -63,3 +127,4 @@
 </body>
 
 </html>
+<script src="js/s16.js"></script>
