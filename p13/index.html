@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>AngularJS</title>
+</head>
+
+<body>
+    <div ng-app="MyApp1" ng-controller="formCtrl1">
+        <h1>Empresa MULTIPLAN</h1>
+        <form novalidate>
+            Ingrese recorrido:<br>
+            <input type="text" ng-model="recorrido"><br>
+            <br><br>
+            <button ng-click="calcular()">Calcular</button>
+        </form>
+        <p>Recorrido: {{ recorrido }}</p>
+        <p>Descuento: {{ descuento }}</p>
+        <p>Total: {{ total }}</p>
+    </div>
+
+    <!-- <div ng-app="MyApp" ng-controller="formCtrl">
+        <h1>Empresa MULTIPLAN</h1>
+        <form novalidate>
+            First Name:<br>
+            <input type="text" ng-model="user.firstName"><br>
+            Last Name:<br>
+            <input type="text" ng-model="user.lastName"><br>
+            <br><br>
+            <button ng-click="reset()">RESET</button>
+        </form>
+        <p>user = {{ user }}</p>
+        <p>master = {{ master }}</p>
+    </div> -->
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
