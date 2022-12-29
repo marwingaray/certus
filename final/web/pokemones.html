@@ -1,420 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de pokemones</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/gridcolores.css">
 
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-  <style>
-    /* https://css-tricks.com/intrinsically-responsive-css-grid-with-minmax-and-min/ */
-    .no-bs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(13rem, 100%), 1fr));
-
-      gap: 1rem;
-    }
-
-    .card,
-    .imgContainer {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* https://getcssscan.com/css-box-shadow-examples */
-    .card {
-      position: relative;
-      border-radius: 1rem;
-      aspect-ratio: 1;
-      border: 3px solid var(--color);
-
-      box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-      padding: .5rem;
-      /* transition: all .3s ease; */
-    }
-
-    .card:hover {
-      box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
-    }
-
-    .imgContainer {
-      margin: 0;
-    }
-
-    .card button {
-      position: absolute;
-      background: black;
-      /* top: 1rem;
-      right: 1rem; ya no, porque tiene padding-3*/
-
-      top: 0;
-      right: 0;
-
-
-      display: grid;
-      place-items: center;
-      outline: none;
-      border: none;
-      background: transparent;
-    }
-
-
-
-    .card img {
-      filter: drop-shadow(.5rem -.2rem .1rem #5151648a);
-
-      /* https://www.youtube.com/watch?v=8Z9zimqUCzA  sombra de .5rem a la derecha, .2rem arriba y blur de .1rem*/
-    }
-
-    .card svg {
-      fill: #bfbaba75;
-    }
-
-    .fav {
-      outline: 4px solid var(--color);
-    }
-
-    .fav svg {
-      fill: currentColor;
-    }
-
-    .texContainer {
-      background-color: blue;
-      font-size: 3rem;
-    }
-
-    /* no funciona */
-
-
-    .water {
-      --color: lightblue;
-    }
-
-    .fire {
-      --color: orange;
-    }
-
-    .electric {
-      --color: yellow;
-    }
-
-    .normal {
-      --color: coral;
-    }
-
-    .grass {
-      --color: yellowgreen;
-    }
-
-    .poison {
-      --color: plum;
-    }
-
-    .ground {
-      --color: peru;
-    }
-
-    .bug {
-      --color: rosybrown;
-    }
-
-
-    .psychic {
-      --color: royalblue;
-    }
-
-    .fighting {
-      --color: crimson;
-    }
-
-    .rock {
-      --color: gray;
-    }
-
-    .ghost {
-      --color: lightgray;
-    }
-
-    .ice {
-      --color: #24eeac;
-    }
-
-    .dragon {
-      --color: #2068f2;
-    }
-
-    .fairy {
-      --color: #ae51ee;
-    }
-
-    .card {
-      background-color: var(--color, black);
-      background-image: radial-gradient(circle at bottom, var(--color), white);
-
-      background-image: radial-gradient(circle at center, white, var(--color));
-      /* este */
-
-
-    }
-
-    .fav {
-      background-image: radial-gradient(circle at center, white 40%, var(--color));
-      /* background-size: 150%; */
-      background-position: center;
-    }
-
-
-
-
-
-    a.form-control {
-      text-decoration: none;
-      text-align: center;
-      color: inherit;
-    }
-  </style>
-  <script>
-    if (sessionStorage.login.length > 3) {
-        console.log("ok")
-    } else {
-        window.location.href = "sign.html";
-    }
-</script>
+    <script>
+        if (sessionStorage.getItem('login') !== null && sessionStorage.login.length > 3) {
+            console.log("ok")
+        } else {
+            window.location.href = "sign.html";
+        }
+    </script>
 </head>
 
 <body>
-|    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">GRUPO 7</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="pokemones.html">Pokemones</a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link" href="favoritos.html">Favoritos</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="perfil.html">Perfil</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Cerrar sesion</a>
-          </li>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">POKEFAVORITOS?</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="pokemones.html">Pokemones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="favoritos.html">Favoritos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="perfil.html">Perfil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="logout()" href="#">Cerrar sesion</a>
+                    </li>
 
-      </ul>
-      
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <div id="root" class="container">
+        <h2 class="text-center py-3">LISTA DE TODOS LOS POKEMONES</h2>
     </div>
-  </nav>
-  <div id="root" class="container">
-    <h2 class="text-center py-3">LISTA DE TODOS LOS POKEMONES</h2>
-  </div>
+    <script src="js/pokemones.js"></script>
+    <script src="js/logout.js"></script>
+    <script>
 
-  <script>
+        let pokemons;
+        const root = document.querySelector('#root');
+        let main = document.createElement('main');
+        main.className = 'no-bs-grid py-3';
 
-    let pokemons;
-    const root = document.querySelector('#root');
-    let main = document.createElement('main');
-    main.className = 'no-bs-grid py-3';
+        let btnMorePokemons = document.createElement('button');
+        btnMorePokemons.className = 'form-control py-3';
 
-    let btnMorePokemons = document.createElement('button');
-    btnMorePokemons.className = 'form-control py-3';
-
-    getPokemonListPage();
+        getPokemonListPage();
 
 
-    function getPokemonListPage() {
-
-      let indexCounter = 0;
-
-
-      fetch("https://pokeapi.co/api/v2/generation/1/", {})
-        .then((response) => response.json())
-        .then((data) => {
-          const pokemons = data.pokemon_species;
-          // console.log(pokemons);
-
-          // fetch los primeros 20, en lugar de for (const index in pokemons) {}
-          fetchNPokemons(20);
-          function fetchNPokemons(nPokemons) {
-            for (indexCounter = 0; indexCounter < nPokemons; indexCounter++) {
-              fetch("https://pokeapi.co/api/v2/pokemon/" + pokemons[indexCounter].name, {})
-                .then((response) => response.json())
-                .then((data) => {
-
-                  console.log(data.name) // 151
-                  createCard(data);
-
-                });
-              // console.log({ indexCounter })
-            };
-          };
-
-          listenToBtn();
-          function listenToBtn() {
-
-
-            btnMorePokemons.textContent = 'CARGAR MÁS POKEMONES';
-            btnMorePokemons.addEventListener('click', () => {
-              // alert(indexCounter)
-
-              // si hay 120 cards, el btn sigue funcionando, cuando hayan140 cards, el btn se deshabilita
-              let allCards = document.querySelectorAll('.card');
-              if (151 - allCards.length < 20) {
-                // btnMorePokemons.style.pointerEvents = 'none'
-                btnMorePokemons.disabled = 'true'
-                btnMorePokemons.style.display = 'none'
-
-                let newBtn = document.createElement('a')
-                newBtn.className = 'form-control'
-                newBtn.href = '#'
-                newBtn.textContent = 'VOLVER ARRIBA';
-                root.append(newBtn);
-
-              }
-
-              for (indexCounter = allCards.length; indexCounter < allCards.length + 20; indexCounter++) {
-
-                //en indexcounter de 140 elbtn desaparece
-
-                fetch("https://pokeapi.co/api/v2/pokemon/" + pokemons[indexCounter].name, {})
-                  .then((response) => response.json())
-                  .then((data) => {
-
-                    console.log(data.name) // 151
-                    createCard(data);
-
-                  });
-                // console.log({ indexCounter })
-              };
-            });
-          };
-        });
-
-      root.append(main, btnMorePokemons);
-
-    }
-
-
-    //funcion dentro del scope donde se declararon main y root
-    function createCard(data) {
-      let card = document.createElement('article');
-      card.className = 'card';
-      card.classList.add(data.types[0].type.name); //NUEVO tienen una clase extra dependiendo del tipo de pokemon
-      card.id = data.name;
-
-      let imgContainer = document.createElement('figure');
-      imgContainer.className = 'imgContainer';
-
-      let img = document.createElement("img");
-      img.loading = 'lazy';
-      //img.src = data.sprites.front_shiny.others[0].front_default;
-      img.width = "200"
-      img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png`;
-      //img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${data.id}.png`
-
-
-      card.addEventListener('click', () => {
-        console.log(data.types[0].type.name) //funcion solo para encontrar tipos de pokemon sin color
-      })
-      // console.log(data, data.types[0].type.name) // obtienes los type
-      // const tiposExistentes = [water, fire, normal, grass, poison, ground, bug,,,,,,psychic,fighting,rock,ghost]
-
-
-
-      let textContainer = document.createElement("figcaption");
-      textContainer.className = ('textContainer');
-
-      let text = document.createElement('h3');
-      text.textContent = data.name
-      text.textContent = (text.textContent).toUpperCase(); //todo en mayuscula el nombre
-
-      let btn = document.createElement('button')
-      btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>'
-      btn.className = 'p-3'
-      btn.addEventListener('click', (e) => {
-        console.log(e.currentTarget.parentElement) //al hacerclick en la estrella obtienes el .card o <article> con su id (nombre del pokemon)
-
-        const cardElement = e.currentTarget.parentElement;
-        
-        console.log(cardElement)
-
-
-
-
-        cardElement.classList.toggle('fav');
-
-
-
-        const favorite = { favorite: { name: data.name, peso: data.weight, altura: data.height, img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png` } };
-        const requestOptions = {
-          method: 'PUT',
-          body: JSON.stringify(favorite),
-          headers: ({
-            'Content-Type': 'application/json'
-          })
-        }
-        fetch("http://localhost:9000/api/users/favorites/"+ sessionStorage.login, requestOptions)
-          .then((response) => response.json())
-          .then((data) => {
-            //const favorites = data.favorites;
-            console.log(data);
-            alert('agregado a favoritos')
-            // //let select = document.getElementById('pokemons');
-            // for (const index in favorites) {
-            //   console.log(index)
-            // }
-          });
-        /* if (cardElement.classList.contains('fav')) {
-          console.log('tiene fav')
-          cardElement.classList.remove('fav')
-        } else {
-          cardElement.classList.add('fav');
-        } */
-
-        ///////////////////ya deje esto sin funcionar
-        /* let usuarioId = '63aa8b4b4760dd949eb213c4';
-        const favorite = { favorite: { name: data.name, peso: data.weight, altura: data.height, img: data.sprites.front_shiny } };
-
-        const requestOptions = {
-          method: 'GET',
-          headers: ({
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-          })
-        }
-        fetch("http://localhost:9000/api/users/favoritos/63aa8c0d4760dd949eb213c6", requestOptions)
-          .then((response) => response.json())
-          .then((data) => {
-            const favorites = data.favorites;
-            console.log(favorites);
-            // //let select = document.getElementById('pokemons');
-            for (const index in favorites) {
-              console.log(index)
-            }
-          }); */
-        //////////////
-
-      })// final de eventlistener
-
-      imgContainer.append(img);
-      textContainer.append(text);
-      card.append(imgContainer, textContainer, btn);
-      main.append(card); //main enlugar de root
-    }
-
-
-
-
-
-  </script>
+    </script>
 
 </body>
 

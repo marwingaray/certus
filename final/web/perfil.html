@@ -12,7 +12,7 @@
         crossorigin="anonymous"></script>
     <!-- <link rel="stylesheet" href="index.css"> -->
     <title>Perfil</title>
-
+    <link rel="stylesheet" href="css/perfil.css">
     <style>
         [disabled] * {
             color: grey;
@@ -24,12 +24,12 @@
         }
 
         form>label:first-of-type {
-      display: none;
-      /* importante */
-    }
+            display: none;
+            /* importante */
+        }
     </style>
     <script>
-        if (sessionStorage.login.length > 3) {
+        if (sessionStorage.getItem('login') !== null && sessionStorage.login.length > 3) {
             console.log("ok")
         } else {
             window.location.href = "sign.html";
@@ -38,31 +38,30 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">GRUPO 7</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">POKEFAVORITOS?</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="pokemones.html">Pokemones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="favoritos.html">Favoritos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="perfil.html">Perfil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="logout()" href="#">Cerrar sesion</a>
+                    </li>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+                </ul>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="pokemones.html">Pokemones</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="favoritos.html">Favoritos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="perfil.html">Perfil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Cerrar sesion</a>
-                </li>
-
-            </ul>
-
+            </div>
         </div>
     </nav>
     <main>
@@ -82,117 +81,16 @@
                 <br /><br />
             </form>
         </fieldset>
-        
-    </main>
 
+    </main>
+    <script src="js/perfil.js"></script>
+    <script src="js/logout.js"></script>
     <script>
         let el, i;
         let data = [];
 
 
         obtenerPerfil()
-        function obtenerPerfil() {
-      fetch("http://localhost:9000/api/users/" + sessionStorage.login, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }).then(res => res.json())
-        .then((data) => {
-          console.log(data)
-
-          for (const i in data) {
-            console.log(i, data[i], data[3])
-
-
-            let campo = document.createElement('input');
-            campo.value = data[i];
-            campo.id = i;
-            let label = document.createElement('label');
-            label.innerHTML = i;
-            label.append(campo)
-            let formPrimerBtn = document.querySelector('form button:first-of-type')
-            let form = document.querySelector('form')
-
-            //inserta losinputs antes del primer btn
-            form.insertBefore(label, formPrimerBtn)
-
-          }
-        })
-        .catch(error => console.error('Error:', error))
-    }
-
-
-
-    
-
-        function update() {
-
-            let allInputs = document.querySelectorAll('form input');
-
-            allInputs.forEach(input => {
-            console.log(input.value)
-            })
-
-            nombre = document.getElementById('nombre').value;
-            correo = document.getElementById('correo').value;
-            usuario = document.getElementById('usuario').value;
-            contraseña = document.getElementById('contraseña').value;
-
-            fetch("http://localhost:9000/api/users/" + sessionStorage.login, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ "nombre": nombre, "correo": correo, "usuario": usuario, "contraseña": contraseña })
-            }).then(res => res.json())
-            .then((data) => {
-                console.log(data)
-
-
-                /* 
-                        nombre = document.getElementById('nombre').value;
-                        data = { nombre: nombre, correo: correo, usuario: usuario, contraseña: contraseña }
-                
-                        console.log(nombre, data) */
-
-            })
-            .catch(error => console.error('Error:', error))
-        }
-
-        function eliminar() {
-            const rpta = confirm("Desea eliminar la cuenta?");
-            if (rpta) {
-                fetch("http://localhost:9000/api/users/" + sessionStorage.login, {
-                    method: 'DELETE',
-                    headers: new Headers({ 'Content-Type': 'application/json' }),
-                })
-                    .then((response) => response.json())
-                    .then((data) => {
-                        if (data.deletedCount == 1) {
-                            alert('Usuario eliminado');
-                            window.location.href = "sign.html";
-                        } else {
-                            alert("No se pudo eliminar usuario")
-                        }
-                    });
-            }
-            
-        }
-
-        function editarClick() {
-
-
-            let fieldset = document.querySelector('fieldset');
-
-            fieldset.hasAttribute('disabled') ? fieldset.removeAttribute('disabled') : fieldset.setAttribute('disabled', '')
-
-
-
-
-            // document.querySelector("#fname").value = data[0].firstname;
-            // document.querySelector("#lname").value = data[0].lastname;
-        }
 
     // renderItem();
     </script>

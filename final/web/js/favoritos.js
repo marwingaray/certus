@@ -101,5 +101,6 @@ function getFavoritos(idUsuario) {
 
 
         card.append(imgContainer, textContainer,btnEliminar);
-        document.querySelector(".card-container").append(card); //main enlugar de root
+        document.querySelector("main").append(card);
+        //document.querySelector(".card-container").append(card); //main enlugar de root
       }

@@ -47,7 +47,7 @@ function intentarEnviar() {
     .then((data) => {
       if(data._id.length> 5){
         sessionStorage.setItem("login", data._id);
-        window.location.href("pokemones.html")
+        window.location.href = "pokemones.html";
       }
       console.log(data._id)
     })
