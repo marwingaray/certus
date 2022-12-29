@@ -3,17 +3,16 @@
 <html lang="en" dir="ltr">
 
 <head>
-    <meta charset="utf-8">
-    <title>Formulario de inicio de sesión y registro en HTML | CodigoMaster</title>
-    <link rel="stylesheet" href="css/sign.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POKEAPI | Sign</title>
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/sign.css">
+
 </head>
 
 <body>
@@ -60,8 +59,7 @@
 
                     <section class="col-md-12">
                         <label for="validationCustom01" class="form-label">Nombre</label>
-                        <input type="text" class="form-control rNombre" id="validationCustom01"
-                            placeholder="Escribir nombre" value="" required pattern="^[A-Z]+([\s]?[A-Za-z])*">
+                        <input type="text" class="form-control rNombre" id="validationCustom01" placeholder="Escribir nombre" value="" required pattern="^[A-Z]+([\s]?[A-Za-z])*">
                         <section class="valid-feedback">
                             Nombre correcto!
                         </section>
@@ -72,9 +70,7 @@
 
                     <section class="col-md-12">
                         <label for="validationCustom07" class="form-label">Email</label>
-                        <input type="text" class="form-control rCorreo" id="validationCustom07"
-                            placeholder="Escribir email" value="" required
-                            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+                        <input type="text" class="form-control rCorreo" id="validationCustom07" placeholder="Escribir email" value="" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
                         <section class="valid-feedback errors">
                             Email correcto!
                         </section>
@@ -87,9 +83,7 @@
                         <label for="validationCustomUsername" class="form-label">Usuario</label>
                         <section class="input-group has-validation">
                             <span class="input-group-text" id="inputGroupPrepend">@</span>
-                            <input type="text" class="form-control rUsuario" id="validationCustomUsername"
-                                placeholder="Escribir usuario" aria-describedby="inputGroupPrepend" minlength="4"
-                                maxlength="16" required pattern="^^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{4,16}$">
+                            <input type="text" class="form-control rUsuario" id="validationCustomUsername" placeholder="Escribir usuario" aria-describedby="inputGroupPrepend" minlength="4" maxlength="16" required pattern="^^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{4,16}$">
                             <section class="valid-feedback">
                                 Usuario correcto!
                             </section>
@@ -103,8 +97,7 @@
 
                     <section class="col-md-12">
                         <label for="validationCustom08" class="form-label">Contraseña</label>
-                        <input type="text" class="form-control rContraseña" id="validationCustom08"
-                            placeholder="Escribir contraseña" minlength="8" required>
+                        <input type="text" class="form-control rContraseña" id="validationCustom08" placeholder="Escribir contraseña" minlength="8" required>
                         <!-- pattern="^[A-Z]{1}[a-z]*[0-9]{1}$" -->
                         <section class="invalid-feedback">
                             Contraseña inválida!
@@ -115,8 +108,7 @@
 
                     <section class="col-md-12">
                         <label for="validationCustom09" class="form-label">Repetir contraseña</label>
-                        <input type="text" class="form-control" id="validationCustom09"
-                            placeholder="Volver escribir contraseña" minlength="8" required>
+                        <input type="text" class="form-control" id="validationCustom09" placeholder="Volver escribir contraseña" minlength="8" required>
                         <!-- pattern="^[A-Z]{1}[a-z]*[0-9]{1}$" -->
                         <section class="invalid-feedback">
                             Contraseña inválido!
