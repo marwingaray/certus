@@ -30,7 +30,7 @@ function getPokemonListPage() {
                 btnMorePokemons.addEventListener('click', () => {
                     // alert(indexCounter)
 
-                    // si hay 120 cards, el btn sigue funcionando, cuando hayan140 cards, el btn se deshabilita
+                    // si hay 120 cards, el btn sigue funcionando, cuando hayan140 cards, el btn se desaparece y aparece uno de volver arriba
                     let allCards = document.querySelectorAll('.card');
                     if (151 - allCards.length < 20) {
                         // btnMorePokemons.style.pointerEvents = 'none'
@@ -76,7 +76,7 @@ function getPokemonListPage() {
 function createCard(data) {
     let card = document.createElement('article');
     card.className = 'card';
-    card.classList.add(data.types[0].type.name); //NUEVO tienen una clase extra dependiendo del tipo de pokemon
+    card.classList.add(data.types[0].type.name); //tienen una clase extra dependiendo del tipo de pokemon
     card.id = data.name;
 
     let imgContainer = document.createElement('figure');
@@ -102,9 +102,9 @@ function createCard(data) {
 
     let btn = document.createElement('button')
     btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>'
-    btn.className = 'p-3'
+    btn.className = 'btnStar p-3'
     btn.addEventListener('click', (e) => {
-        console.log(e.currentTarget.parentElement) //al hacerclick en la estrella obtienes el .card o <article> con su id (nombre del pokemon)
+        console.log(e.currentTarget.parentElement) //al hacer click en la estrella obtienes el .card o <article> con su id (nombre del pokemon)
 
         const cardElement = e.currentTarget.parentElement;
 
